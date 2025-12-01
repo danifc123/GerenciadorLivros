@@ -10,6 +10,8 @@ namespace Models.Entities
     {
         #region Id
         public int Id { get; set; }
+        #endregion
+        #region Propriedades
         public int UsiarioId { get; set; }
         public required string Materia { get; set; }
         public required string CPF { get; set; }
