@@ -12,7 +12,12 @@ namespace EFModels.DBConfig
         #endregion
         #region DbSets
         // Defina seus DbSets aqui
+        public DbSet<Aluguel> Alugueis { get; set; }
         public DbSet<Aluno> Alunos { get; set; }
+        public DbSet<Livro> Livros { get; set; }
+        public DbSet<Professor> Professores { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+
         #endregion
     }
 }
