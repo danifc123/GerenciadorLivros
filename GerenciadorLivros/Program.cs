@@ -1,9 +1,12 @@
+using EFModels.DBConfig;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddDbContext<GerenciadorLivrariaDb>(options =>
+options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlOptions => sqlOptions.MigrationsAssembly(typeof(Program).Assembly.FullName)));
 builder.Services.AddOpenApi();
 
 var app = builder.Build();

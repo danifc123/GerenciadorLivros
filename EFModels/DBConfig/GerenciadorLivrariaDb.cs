@@ -3,7 +3,7 @@ using Models.Entities;
 
 namespace EFModels.DBConfig
 {
-    internal class GerenciadorLivrariaDb : DbContext
+    public class GerenciadorLivrariaDb : DbContext
     {
         #region Construtor
         public GerenciadorLivrariaDb(DbContextOptions<GerenciadorLivrariaDb> options) : base(options) 
