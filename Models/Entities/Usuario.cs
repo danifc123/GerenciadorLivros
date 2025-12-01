@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Models.Entities
 {
-    internal class Usuario
+    public class Usuario
     {
         #region Id
         public int Id { get; set; }

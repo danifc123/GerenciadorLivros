@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models.Entities
 {
-    internal class Professor
+    public class Professor
     {
         #region Id
         public int Id { get; set; }
