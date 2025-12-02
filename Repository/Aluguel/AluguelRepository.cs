@@ -21,9 +21,6 @@ namespace Repository.AluguelRepository
         public async Task<Aluguel> GetByIdAsync(int id)
         {
             var aluguelBanco = await _context.Alugueis.FindAsync(id);
-            
-            if (aluguelBanco == null)
-                return null;
 
             return aluguelBanco;
         }

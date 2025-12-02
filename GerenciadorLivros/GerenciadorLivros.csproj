@@ -13,10 +13,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.1" />
 	<ProjectReference Include="..\EFModels\EFModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
+	<ProjectReference Include="..\Service\Service.csproj" />
   </ItemGroup>
 
 </Project>
