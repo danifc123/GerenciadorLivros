@@ -1,6 +1,10 @@
 using EFModels.DBConfig;
+using HotChocolate.Execution.Processing;
 using Microsoft.EntityFrameworkCore;
+using Repository.AluguelRepository;
+using Service.AluguelService;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,15 +16,25 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddGraphQLServer() 
-    .AddQueryType<Query>();
+builder.Services.AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddInMemorySubscriptions();
+
+builder.Services.AddControllers();
+
+//repository
+builder.Services.AddScoped<AluguelRepository>();
+
+//services
+builder.Services.AddScoped<AluguelService>();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+  app.MapOpenApi();
+  app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
