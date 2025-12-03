@@ -12,11 +12,47 @@ namespace Repository.ProfessorRepository
     {
         private readonly GerenciadorLivrariaDb _context;
 
-        public ProfessorRepository(GerenciadorLivrariaDb context) 
+        public ProfessorRepository(GerenciadorLivrariaDb context)
         {
             _context = context;
         }
-        
 
+        public async Task<Professor> GetByIdProfessor(int id)
+        {
+            var professor = _context.Professores.Find(id);
+            return professor;
+        }
+
+        public async Task<Professor> CreateProfessor(int id, Professor professor)
+        {
+            await _context.Professores.AddAsync(professor);
+            await _context.SaveChangesAsync();
+
+            return professor;
+        }
+
+        public async Task<Professor> UpdateProfessor(int id, Professor professor)
+        {
+            var professorBanco = await _context.Professores.FindAsync(id);
+
+            professorBanco.Materia = professor.Materia;
+            professorBanco.CPF = professor.CPF;
+            professor.UsiarioId = professor.UsiarioId;
+
+            _context.Professores.Update(professorBanco);
+            await _context.SaveChangesAsync();
+
+            return professorBanco;
+        }
+
+        public async Task<Professor> DeleteProfessor(int id) 
+        {
+            var professorbanco = await _context.Professores.FindAsync(id);
+
+            _context.Professores.Remove(professorbanco);
+            await _context.SaveChangesAsync();
+
+            return professorbanco;
+        }
     }
 }
