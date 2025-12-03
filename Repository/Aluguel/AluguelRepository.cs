@@ -48,7 +48,7 @@ namespace Repository.AluguelRepository
         }
         public async Task<Aluguel> DeleteAsync(int id)
         {
-            var aluguelBanco = _context.Alugueis.Find(id);
+            var aluguelBanco = await _context.Alugueis.FindAsync(id);
 
             _context.Alugueis.Remove(aluguelBanco);
             await _context.SaveChangesAsync();
