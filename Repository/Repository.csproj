@@ -7,10 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Aluno\" />
-    <Folder Include="Livro\" />
     <Folder Include="Usuario\" />
-    <Folder Include="Professor\" />
   </ItemGroup>
 
   <ItemGroup>
