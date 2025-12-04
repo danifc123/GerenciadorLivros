@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Alunos
 {
-    internal class AlunoRepository
+    public class AlunoRepository
     {
 
         #region Attributes
