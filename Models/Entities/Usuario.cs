@@ -13,6 +13,9 @@ namespace Models.Entities
         public int Id { get; set; }
         #endregion
         #region Propriedades
+
+        public bool Ativado { get; set; } = true;
+
         [Required]
         public required string Email { get; set; }
         [Required]
