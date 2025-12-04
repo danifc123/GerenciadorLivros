@@ -55,6 +55,7 @@ namespace GerenciadorLivros.Controllers
             try
             {
                 var updateAluguel = await _aluguelService.Post(id, aluguel);
+                if(updateAluguel == null) return BadRequest("Não foi possível atualizar o aluguel.");
                 return Ok(updateAluguel);
             }
             catch (Exception ex)
