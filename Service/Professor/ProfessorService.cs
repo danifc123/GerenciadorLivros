@@ -20,9 +20,9 @@ namespace Service.ProfessorService
         {
             return await _repository.GetByIdProfessor(id);
         }
-        public async Task<Professor> AddProfessor(int id, Professor professor) 
+        public async Task<Professor> AddProfessor(Professor professor) 
         {
-            return await _repository.CreateProfessor(id, professor);
+            return await _repository.CreateProfessor(professor);
         }
         public async Task<Professor> AtualizaProfessor(int id, Professor professor) 
         {
