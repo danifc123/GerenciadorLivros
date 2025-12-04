@@ -1,10 +1,17 @@
 using EFModels.DBConfig;
-using HotChocolate.Execution.Processing;
 using Microsoft.EntityFrameworkCore;
 using Repository.AluguelRepository;
-using Service.AluguelService;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Repository.Alunos;
+using Repository.Livros;
+using Repository.ProfessorRepository;
+using Repository.UsuarioRepository;
 using Scalar.AspNetCore;
+using Service.AluguelService;
+using Service.AlunoService;
+using Service.LivroService;
+using Service.ProfessorService;
+using Service.UsuarioService;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,9 +31,17 @@ builder.Services.AddControllers();
 
 //repository
 builder.Services.AddScoped<AluguelRepository>();
+builder.Services.AddScoped<AlunoRepository>();
+builder.Services.AddScoped<LivroRepository>();
+builder.Services.AddScoped<ProfessorRepository>();
+builder.Services.AddScoped<UsuarioRepository>();
 
 //services
 builder.Services.AddScoped<AluguelService>();
+builder.Services.AddScoped<AlunoService>();
+builder.Services.AddScoped<LivroService>();
+builder.Services.AddScoped<ProfessorService>();
+builder.Services.AddScoped<UsuarioService>();
 
 var app = builder.Build();
 
