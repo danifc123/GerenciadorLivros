@@ -5,7 +5,7 @@ using Models.Entities;
 
 namespace Repository.Livros
 {
-    internal class LivroRepository
+    public class LivroRepository
     {
         private readonly GerenciadorLivrariaDb _context;
 
@@ -20,7 +20,7 @@ namespace Repository.Livros
 
             return getLivro!;
         }
-        public async Task<Livro> AddLivro(Livro livro) 
+        public async Task<Livro> AddLivroAsync(Livro livro) 
         {
             await _context.Livros.AddAsync(livro);
             await _context.SaveChangesAsync();
