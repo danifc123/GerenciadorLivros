@@ -6,7 +6,7 @@ namespace Service.AluguelService
 {
     public class AluguelService
     {
-        private readonly AluguelRepository _repository;
+        private AluguelRepository _repository;
 
         #region Constructor
         public AluguelService(AluguelRepository repository)
