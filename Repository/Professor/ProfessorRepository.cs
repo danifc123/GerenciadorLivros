@@ -23,7 +23,7 @@ namespace Repository.ProfessorRepository
             return professor;
         }
 
-        public async Task<Professor> CreateProfessor(int id, Professor professor)
+        public async Task<Professor> CreateProfessor(Professor professor)
         {
             await _context.Professores.AddAsync(professor);
             await _context.SaveChangesAsync();
