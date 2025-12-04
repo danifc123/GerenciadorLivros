@@ -42,7 +42,7 @@ namespace Repository.UsuarioRepository
 
             return usuario;
         }
-        public async Task<Usuario> PostUser(int id, Usuario usuario) 
+        public async Task<Usuario> PostUserAsync(int id, Usuario usuario) 
         {
             var usuarioBanco = await _context.Usuarios.FindAsync(id);
 
@@ -54,6 +54,35 @@ namespace Repository.UsuarioRepository
             await _context.SaveChangesAsync();
 
             return usuario;
+        }
+        public async Task<bool> DesativarUserAsync(int id) 
+        {
+            var usuarioBanco = await _context.Usuarios.FindAsync(id);
+            if (usuarioBanco == null) 
+            {
+                return false;
+            }
+            usuarioBanco.Ativado = false;
+
+            _context.Usuarios.Update(usuarioBanco);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<bool> AtivarUsuarioAsync(int id)
+        {
+            var usuarioBanco = await _context.Usuarios.FindAsync(id);
+            if (usuarioBanco == null)
+            {
+                return false;
+            }
+            usuarioBanco.Ativado = true;
+
+            _context.Usuarios.Update(usuarioBanco);
+            await _context.SaveChangesAsync();
+
+            return true;
         }
 
     }
