@@ -29,6 +29,12 @@ namespace Repository.Livros
         public async Task<Livro> PostLivroAsync(int id, Livro livro)
         {
             var updateLivro = await _context.Livros.FindAsync(id);
+            Console.WriteLine($"esse é o objeto do banco {updateLivro}");
+
+            if (updateLivro == null)
+            {
+                return null; 
+            }
 
             updateLivro.Titulo = livro.Titulo;
             updateLivro.Autor = livro.Autor;
