@@ -29,7 +29,7 @@ namespace GerenciadorLivros.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<ActionResult<Aluno>> PutAluno(int id, Aluno aluno) 
         {
             try

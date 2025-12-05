@@ -6,7 +6,7 @@ namespace GerenciadorLivros.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class LivroController: ControllerBase
+    public class LivroController : ControllerBase
     {
         private readonly LivroService _livroService;
 
@@ -15,12 +15,12 @@ namespace GerenciadorLivros.Controllers
             _livroService = livroService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<Livro>> GetLivroById(int id) 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Livro>> GetLivroById(int id)
         {
-            try 
+            try
             {
-               var livroBanco = await _livroService.GetById(id);
+                var livroBanco = await _livroService.GetById(id);
                 return Ok(livroBanco);
             }
             catch (Exception ex)
@@ -29,19 +29,19 @@ namespace GerenciadorLivros.Controllers
             }
         }
         [HttpPost]
-        public async Task<ActionResult<Livro>> AdicionarLivro(Livro livro) 
+        public async Task<ActionResult<Livro>> AdicionarLivro(Livro livro)
         {
-            try 
+            try
             {
                 var livroBanco = await _livroService.AdicionarLivro(livro);
                 return Ok(livroBanco);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<ActionResult<Livro>> AtualizarLivro(int id, Livro livro) 
         {
             try 
