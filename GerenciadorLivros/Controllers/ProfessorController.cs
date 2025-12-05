@@ -48,7 +48,7 @@ namespace GerenciadorLivros.Controllers
                 return StatusCode(500, $"Erro interno no servidor: {ex.Message}");
             }
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<ActionResult<Professor>> AtualizaProfessor(int id, Professor professor) 
         {
             try
