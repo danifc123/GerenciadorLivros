@@ -53,7 +53,7 @@ namespace Repository.UsuarioRepository
             _context.Usuarios.Update(usuarioBanco);
             await _context.SaveChangesAsync();
 
-            return usuario;
+            return usuarioBanco;
         }
         public async Task<bool> DesativarUserAsync(int id) 
         {
