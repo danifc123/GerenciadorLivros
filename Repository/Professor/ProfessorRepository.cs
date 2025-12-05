@@ -37,7 +37,6 @@ namespace Repository.ProfessorRepository
 
             professorBanco.Materia = professor.Materia;
             professorBanco.CPF = professor.CPF;
-            professor.UsiarioId = professor.UsiarioId;
 
             _context.Professores.Update(professorBanco);
             await _context.SaveChangesAsync();
